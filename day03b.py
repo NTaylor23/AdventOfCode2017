@@ -9,15 +9,14 @@ length = math.ceil(math.sqrt(INPUT))
 if length % 2 == 0:
     length += 1
 
-adj_list = collections.defaultdict()
+adj_list = collections.defaultdict(int)
 pt = complex(length // 2, length // 2) 
 num_steps, n, direction = 1, 1, 0
 
 def check_neighbors(point) -> int:
     sum_of_adjacent_points = 0
     for adjacent_point in NEIGHBORS:
-        if (point + adjacent_point) in adj_list:
-            sum_of_adjacent_points += adj_list[point + adjacent_point]
+        sum_of_adjacent_points += adj_list[point + adjacent_point]
     return sum_of_adjacent_points
 
 def move(steps_before_rotation: int) -> None:
