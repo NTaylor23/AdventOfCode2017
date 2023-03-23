@@ -48,7 +48,6 @@ for k, v in weights.items():
             if len(adj_list[curr].neighbors) > 0:
                 print(f'{curr} -> {adj_list[curr].weight}: ')
                 print(' '.join([str((n, adj_list[n].weight)) for n in adj_list[curr].neighbors]))
-                #print(set([adj_list[n].weight for n in adj_list[curr].neighbors]))
                 print()
                 for neighbor in adj_list[curr].neighbors:
                     queue.append(neighbor)
