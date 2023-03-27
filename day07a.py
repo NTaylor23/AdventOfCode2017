@@ -44,4 +44,4 @@ for k in adj_list.keys():
             max_edge = k
 
 result = max_edge
-print(f'Day 7 Part 1: The name of the bottom program is {result}.\n')    
+print(f'Day 7 Part 1: The name of the bottom program is {result}.\n')
