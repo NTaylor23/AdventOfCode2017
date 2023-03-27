@@ -16,10 +16,19 @@ aoc_days=(
     "day07a.py"
     "day08a.py"
     "day08b.py"
+    "day10a.py"
+    "day10b.py"
+    "day11a.py"
+    "day11b.py"
+    "day12a.py"
+    "day12b.py"
+    "day13a.py"
+    "day14a.py"
 )
 
 echo "/////////////// Advent Of Code 2017 ///////////////"
 echo
 for file in "${aoc_days[@]}"; do
-    python3 "$file"
+    time python3 "$file"
+    echo
 done

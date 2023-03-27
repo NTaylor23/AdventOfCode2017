@@ -42,4 +42,4 @@ while True:
         seen_configs.add(current_config)
 
 result = cycles
-print(f'Day 6 Part 2: The infinite loop is {result} cycles long.\n')    
+print(f'Day 6 Part 2: The infinite loop is {result} cycles long.\n')
