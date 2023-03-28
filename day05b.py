@@ -1,6 +1,4 @@
 import numpy as np
-import sys
-sys.path.append('cython')
 from cython_files import process_offsets_cy
 
 with open('inputs/day05.txt', 'r') as file:
