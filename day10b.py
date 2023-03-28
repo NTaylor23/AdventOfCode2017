@@ -5,8 +5,8 @@ def to_hex_string(raw_values: list) -> str:
     for i in range(0, 256, 16):
         # XOR each element in each group of 16 elements together to produce a result
         # Add the hex string version of that result to the final return value
-        hex_string += str(hex(reduce(lambda a, b: a ^ b, raw_values[i : i + 16])))[2:]
-    
+        to_hex = "0x{:02x}".format(reduce(lambda a, b: a ^ b, raw_values[i : i + 16]))
+        hex_string += str(to_hex)[2:]
     return hex_string
 
 def generate_hash(input: str):
