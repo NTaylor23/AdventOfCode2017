@@ -24,6 +24,11 @@ aoc_days=(
     "day12b.py"
     "day13a.py"
     "day14a.py"
+    "day14b.py"
+    "day15a.py"
+    "day15b.py"
+    "day16a.py"
+    "day16b.py"
 )
 
 echo "/////////////// Advent Of Code 2017 ///////////////"
