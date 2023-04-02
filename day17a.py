@@ -3,18 +3,15 @@ class Node:
         self.val = val
         self.next = None
 
-
 class SpinLock:
     
     def __init__(self) -> None:
         self.head = Node(0)
         self.head.next = self.head
-        self.count = 1
         self.step_size = 366
         self.directory = { 0: self.head }
 
     def insert(self, val: int, after_target: int) -> Node:
-        self.count += 1
         new_node = Node(val)
 
         prev_node = self.get_node(after_target)
