@@ -1,6 +1,5 @@
 import multiprocessing
 import time 
-import random
 
 def program(
     values, 
@@ -11,6 +10,8 @@ def program(
     queue, 
     id
 ):    
+    # Give each process its own data - no shared resources
+    values = values.copy()
     
     # Set the value of `p` to the Process ID
     values['p'] = id
@@ -43,17 +44,17 @@ def program(
         # Parse instructions
         if inst == 'rcv':
             # Accept value from other process
-            if pipe.poll(1):
+            if pipe.poll(0.01):
                 val = pipe.recv()
                 values[x] = val
             else:
-                # Watch for deadlock, terminate if both processes are blocked
+                # Watch for deadlock
                 with deadlock_lock:
                     deadlock_counter.value += 1
                     if deadlock_counter.value >= 2:
+                        # Terminate if both processes are blocked
                         break
-                    #time.sleep(0.5)
-                    deadlock_counter.value -= 1
+                    time.sleep(0.01)
         elif inst == 'snd':
             # Send value to other process and increment count
             pipe.send(get_value(x))
@@ -67,7 +68,6 @@ def program(
             y = get_value(y)
             operation_map[inst](x, y)
         idx += 1
-        # time.sleep(random.uniform(0.01, 0.1))
     queue.put(count)
 
 def main():
@@ -110,8 +110,7 @@ def main():
         p1.join()
         p2.join()
         
-        results = [queue.get(), queue.get()]
-        result = results[0]
+        result = queue.get()
         print(f'Day 18 Part 2: Program 1 sent a value {result} times.\n')
 
 if __name__ == '__main__':
