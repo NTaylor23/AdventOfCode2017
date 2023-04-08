@@ -6,7 +6,7 @@ string = [i for i in range(SIZE)]
 
 with open('inputs/day10.txt', 'r') as file:
     lengths = [int(n.strip()) for n in file.readline().split(',')]
-
+    
 for length in lengths:
     if length > SIZE:
         continue
