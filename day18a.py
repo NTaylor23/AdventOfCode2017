@@ -41,4 +41,4 @@ while idx < len(instructions):
     idx += 1
 
 result = sounds[-1]
-print(f'Day 18 Part 2: The value of the recovered frequency the first time a `rcv` instruction appears is {result}.\n')
+print(f'Day 18 Part 1: The value of the recovered frequency the first time a `rcv` instruction appears is {result}.\n')
