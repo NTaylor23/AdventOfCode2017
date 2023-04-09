@@ -16,7 +16,6 @@ B = ' ' # Blank Space
 V = '|' # Vertical Movement
 H = '-' # Horizontal Movement
 J = '+' # Junction
-L = set(list(string.ascii_uppercase)) # Letters
 
 MAX_R, MAX_C = len(maze), len(maze[0])
 
@@ -48,7 +47,7 @@ def get_next_direction(maze: list, pt: tuple, seen: set, map: dict):
         _pt = add_points(pt, delta)
         if _pt not in seen and is_in_range(pt):
             neighbour = maze[_pt[0]][_pt[1]]
-            if neighbour in [V, H] or neighbour in L:
+            if neighbour in [V, H] or neighbour.isalpha():
                 return direction
     return None
 
@@ -73,7 +72,7 @@ def traverse(maze: list) -> str:
         r, c = curr
         token = maze[r][c]
         
-        if token in L:
+        if token.isalpha():
             path.append(token)
             
         if token == J:
